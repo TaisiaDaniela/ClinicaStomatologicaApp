@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClinicaStomatologicaApp.MyAppointmentsPage"
+             Title="MyAppointmentsPage">
+    <StackLayout Padding="10">
+
+        <!-- Titlul paginii -->
+        <Label Text="My Appointments"
+               FontSize="24"
+               HorizontalOptions="Center" />
+
+        <!-- Lista de programări -->
+        <ListView x:Name="appointmentsListView"
+                  ItemsSource="{Binding Appointments}"
+                  ItemSelected="OnAppointmentSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding PatientName}"
+                              Detail="{Binding TreatmentName}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Buton de navigare către pagina de tratamente -->
+        <Button Text="Go to Treatments"
+                Clicked="OnGoToTreatmentsClicked" />
+
+        <!-- ListView pentru tratamente -->
+        <ListView x:Name="TreatmentsListView"
+                  ItemsSource="{Binding Treatments}"
+                  ItemSelected="OnTreatmentSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding TreatmentName}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Buton pentru a adăuga tratament la programare -->
+        <Button Text="Add Treatment to Appointment"
+                Clicked="OnAddAppointmentClicked" />
+
+        <!-- Buton de ștergere a unei programări -->
+        <Button Text="Delete Appointment"
+                Clicked="OnDeleteAppointmentClicked" />
+
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClinicaStomatologicaApp.TreatmentsPage"
+             Title="TreatmentsPage">
+    <StackLayout Padding="20">
+        <Entry Placeholder="Enter Treatment Name" Text="{Binding TreatmentName}" />
+        <Editor Placeholder="Enter Description" Text="{Binding Description}" HeightRequest="100" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Save" Clicked="OnSaveButtonClicked" />
+            <Button Grid.Column="1" Text="Delete" Clicked="OnDeleteButtonClicked" />
+        </Grid>
+
+        <Label Text="Treatments List" FontSize="Large" Padding="10"/>
+        <ListView x:Name="treatmentsListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding TreatmentName}" Detail="{Binding Description}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

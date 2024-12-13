@@ -13,8 +13,8 @@ namespace ClinicaStomatologicaApp.Models
         public int ID { get; set; }
         public int? PatientID { get; set; }
         public Patient? Patients { get; set; }
-        public int? DoctorID { get; set; }
-        public Doctor? Doctors { get; set; }
+        public int? TreatmentID { get; set; }
+        public Treatment? Treatments { get; set; }
 
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Campul este obligatoriu.")]
@@ -24,5 +24,8 @@ namespace ClinicaStomatologicaApp.Models
         [Required(ErrorMessage = "Campul este obligatoriu.")]
         public TimeOnly Time { get; set; }
         public string Description { get; set; }
+        public string? TreatmentName { get; internal set; }
+        public string Name { get; set; }
+
     }
 }

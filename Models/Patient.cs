@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace ClinicaStomatologicaApp.Models
 {
@@ -31,8 +32,7 @@ namespace ClinicaStomatologicaApp.Models
         [Required(ErrorMessage = "Campul este obligatoriu.")]
 
         public string Allergies { get; set; }
-
-        public int DoctorId { get; set; }
-        public Doctor? Doctor { get; set; }
+        [OneToMany]
+        public List<Patient> PatientList { get; set; }
     }
 }

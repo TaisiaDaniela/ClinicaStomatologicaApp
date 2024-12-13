@@ -7,9 +7,10 @@
     Shell.FlyoutBehavior="Disabled"
     Title="ClinicaStomatologicaApp">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <ShellContent Title="Welcome" ContentTemplate="{DataTemplate local:WelcomePage}" />
+        <ShellContent Title="My Appointments" ContentTemplate="{DataTemplate local:MyAppointmentsPage}" />
+        <ShellContent Title="Treatments" ContentTemplate="{DataTemplate local:TreatmentsPage}" />
+    </TabBar>
 
 </Shell>

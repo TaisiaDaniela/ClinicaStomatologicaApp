@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClinicaStomatologicaApp.MyPatientsPage"
+             Title="MyPatientsPage">
+    <StackLayout Padding="10">
+
+        <!-- Titlul paginii -->
+        <Label Text="My Patients"
+               FontSize="24"
+               HorizontalOptions="Center" />
+
+        <!-- Lista de pacienți -->
+        <ListView x:Name="patientsListView"
+                  ItemsSource="{Binding Patients}"
+                  ItemSelected="OnPatientSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Buton de navigare către pagina de tratamente -->
+        <Button Text="Go to Treatments"
+                Clicked="OnGoToTreatmentsClicked" />
+
+        <!-- Buton de adăugare pacient -->
+        <Button Text="Add Patient"
+                Clicked="OnAddPatientClicked" />
+
+        <!-- Buton de ștergere a unui pacient -->
+        <Button Text="Delete Patient"
+                Clicked="OnDeletePatientClicked" />
+
+    </StackLayout>
+</ContentPage>
